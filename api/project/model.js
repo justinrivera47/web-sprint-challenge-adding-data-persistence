@@ -3,7 +3,7 @@
 const db = require('../../data/dbConfig');
 
 function getAll() {
-  return db('project')
+  return db('projects')
 }
 
-module.exports = getAll;
+module.exports = {getAll};

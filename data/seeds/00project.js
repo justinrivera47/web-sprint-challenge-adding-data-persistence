@@ -1,7 +1,7 @@
 
 exports.seed = async function(knex) {
-  await knex('project').truncate()
-  await knex('project').insert([
+  await knex('projects').truncate()
+  await knex('projects').insert([
     {
       project_id: 1, 
       project_name: 'rowValue1', 

@@ -1,10 +1,11 @@
 const express = require('express')
+const Project = require('./model')
 const router = express.Router()
 
-router.get('/', (req, res, next) => {
-  res.status(200).json({
-    message: 'Success'
-  })
+router.get('/', async (req, res, next) => {
+  // const result = await Project.getAll()
+  // res.json(result)
+  res.json({ messages: [] })
 })
 
 module.exports = router

@@ -6,7 +6,7 @@ const server = express();
 
 server.use(helmet())
 server.use(express.json());
-server.use('/api', projectRouter)
+server.use('/api/project', projectRouter)
 
 server.use((err, req, res, next) => {
   res.status(500).json({

@@ -4,9 +4,11 @@ const projectRouter = require('./project/router');
 
 const server = express();
 
+server.use(express.json())
+
 server.use(helmet())
 server.use(express.json());
-server.use('/api/project', projectRouter)
+server.use('/api/projects', projectRouter)
 
 server.use((err, req, res, next) => {
   res.status(500).json({

@@ -6,7 +6,7 @@
     "start": "node index.js",
     "server": "nodemon index.js",
     "test": "cross-env NODE_ENV=testing jest --verbose --runInBand --silent",
-    "latest": "npx knex migrate:latest",
+    "latest": "npx knex migrate:latest && npx knex seed:run",
     "rollback": "npx knex migrate:rollback"
   },
   "repository": {

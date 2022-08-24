@@ -16,7 +16,7 @@ exports.up = function(knex) {
     tbl.varchar('resources_description', 600);
   })
   .createTable('tasks', tbl => {
-    tbl.increments('task_id')
+    tbl.integer('task_id')
       .unsigned()
     tbl.varchar('task_description', 500)
       .notNullable()
@@ -27,6 +27,9 @@ exports.up = function(knex) {
       .notNullable()
       .references('project_id')
       .inTable('projects')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE');
+      // on delete and update
     // tbl.primary(['task_id'], ['project_id'])
   })
   .createTable('project_resources', tbl => {

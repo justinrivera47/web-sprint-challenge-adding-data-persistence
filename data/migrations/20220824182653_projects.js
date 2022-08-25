@@ -9,11 +9,11 @@ exports.up = function(knex) {
     tbl.boolean('project_completed').defaultTo(false)
   })
   .createTable('resources', tbl => {
-    tbl.increments('resources_id')
+    tbl.increments('resource_id')
     .unsigned()
     tbl.varchar('resource_name', 100)
     .notNullable();
-    tbl.varchar('resources_description', 600);
+    tbl.varchar('resource_description', 600);
   })
   .createTable('tasks', tbl => {
     tbl.integer('task_id')
@@ -33,17 +33,17 @@ exports.up = function(knex) {
     // tbl.primary(['task_id'], ['project_id'])
   })
   .createTable('project_resources', tbl => {
-    tbl.integer('resources_id')
+    tbl.integer('resource_id')
       .unsigned()
       .notNullable()
-      .references('resources_id')
+      .references('resource_id')
       .inTable('resources')
     tbl.integer('project_id')
       .unsigned()
       .notNullable()
       .references('project_id')
       .inTable('projects')
-    tbl.primary(['resources_id', 'project_id'])
+    tbl.primary(['resource_id', 'project_id'])
   })
 };
 

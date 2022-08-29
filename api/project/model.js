@@ -7,4 +7,12 @@ function getAll() {
   .then(projects => projects.map(p => ({...p, project_completed: p.project_completed ? true : false})))
 }
 
-module.exports = {getAll};
+async function createProject(project) {
+  const [project_id] = await db('projects').insert(project);
+  return getAll()
+}
+
+module.exports = {
+  getAll,
+  createProject
+};

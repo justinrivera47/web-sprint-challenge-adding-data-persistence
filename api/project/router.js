@@ -5,8 +5,17 @@ const router = express.Router()
 router.get('/', async (req, res, next) => {
   try {
     const projects = await Project.getAll()
-  res.status(200).json(projects)
+    res.status(200).json(projects)
   } catch (error) {
+    res.status(500).json({ message: error.message })
+  }
+})
+
+router.get('/:id', async (req, res, next) => {
+  try {
+    const project = await Project.getById(req.params.id)
+    res.status(200).json(project)
+  } catch(error) {
     res.status(500).json({ message: error.message })
   }
 })

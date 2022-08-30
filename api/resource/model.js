@@ -7,13 +7,15 @@ function getAll() {
 }
 
 function getById(id) {
-  return db('resources').where('resource_id', id).first()
+  return db('resources')
+  .where('resource_id', id)
+  .first()
 }
 
 function findByName(resource_name) {
-  return db('resource_name')
+  return db('resources')
     .where({ resource_name })
-    .first();
+    .first()
 }
 
 async function createResource(resources) {
@@ -21,8 +23,10 @@ async function createResource(resources) {
   return getById(resource_id)
 }
 
+
 module.exports = {
   getAll,
   getById,
-  createResource
+  createResource,
+  findByName
 };

@@ -2,6 +2,7 @@
 const express = require('express')
 const Resource = require('./model')
 const router = express.Router()
+const { validateName } = require('./middleware')
 
 router.get('/', async (req, res, next) => {
   try {
@@ -21,14 +22,10 @@ router.get('/:id', async (req, res, next) => {
   }
 })
 
-router.post('/', async (req, res, next) => {
+router.post('/', validateName, async (req, res, next) => {
   try {
     const createdResource = await Resource.createResource(req.body)
-    if(req.body.resource_name === Resource.getAll()){
-      res.status(404).json({ message:'resource already has this name'})
-    } else {
     res.status(201).json(createdResource)
-    }
   } catch (error) {
     res.status(500).json({ message: error.message })
   }

@@ -5,21 +5,21 @@
     {
       task_id: 1, 
       task_description: 'rowValue1',
-      task_notes: '',
+      task_notes: 'this is one',
       task_completed: false,
       project_id: 1
     },
     {
       task_id: 2, 
       task_description: 'rowValue2',
-      task_notes: '',
+      task_notes: 'lorem ipsom',
       task_completed: false,
       project_id: 2
     },
     {
       task_id: 3, 
       task_description: 'rowValue3',
-      task_notes: '',
+      task_notes: 'already 3',
       task_completed: false,
       project_id: 3
     }

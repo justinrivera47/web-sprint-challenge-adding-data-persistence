@@ -16,7 +16,7 @@ exports.up = function(knex) {
     tbl.varchar('resource_description', 600);
   })
   .createTable('tasks', tbl => {
-    tbl.integer('task_id')
+    tbl.increments('task_id')
       .unsigned()
     tbl.varchar('task_description', 500)
       .notNullable()
